@@ -2,6 +2,8 @@ package com.tqpp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.System.Logger;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -9,17 +11,21 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(OrderAnnotation.class)
 @TestInstance(Lifecycle.PER_CLASS)
 class CalculatorTest {
 	
+	
+	
 	Calculator c;
 	
 	CalculatorTest()
 	{
 		System.out.println("in def");
+		System.out.println("in default");
 	}
 	@BeforeAll
 	static void all()
@@ -30,6 +36,7 @@ class CalculatorTest {
 	@BeforeEach
 	void start()
 	{
+		
 		System.out.println("in start");
 		c=new Calculator();
 	}
